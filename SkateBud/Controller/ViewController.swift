@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        // Simulate a touch on the createAccountButton
+        createAccountButton.sendActions(for: .touchUpInside)
     }
     
     

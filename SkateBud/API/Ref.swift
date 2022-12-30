@@ -42,6 +42,7 @@ let IDENTIFIER_MAP = "MapViewController"
 let IDENTIFIER_DETAIL = "DetailViewController"
 let IDENTIFIER_RADAR = "RadarViewController"
 
+let IDENTIFIER_TABLE_PEOPLE = "PeopleTableViewController"
 let IDENTIFIER_CELL_USERS = "UserTableViewCell"
 
 class Ref {

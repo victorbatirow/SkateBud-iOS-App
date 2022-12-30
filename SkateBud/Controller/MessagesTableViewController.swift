@@ -30,7 +30,7 @@ class MessagesTableViewController: UITableViewController {
         avatarImageView.clipsToBounds = true
         containView.addSubview(avatarImageView)
         
-        let radarItem = UIBarButtonItem(image: UIImage(named: "icon_radar"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(radarItemDidTapped))
+        let radarItem = UIBarButtonItem(image: UIImage(named: "icon_cards"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(radarItemDidTapped))
         self.navigationItem.rightBarButtonItem = radarItem
         
         let leftBarButton = UIBarButtonItem(customView: containView)

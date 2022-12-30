@@ -52,8 +52,8 @@ class UsersAroundViewController: UIViewController {
     }
     
     func setupNavigationBar() {
-        title = "Find Skaters"
-        let refresh = UIBarButtonItem(image: UIImage(named: "icon_refresh"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(refreshTapped))
+//        title = "Find Skaters"
+        let searchPeople = UIBarButtonItem(image: UIImage(named: "icon_search_people"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(searchPeopleTapped))
         distanceLabel.frame = CGRect(x: 0, y: 0, width: 50, height: 20)
         distanceLabel.font = UIFont.systemFont(ofSize: 13)
         distanceLabel.text = "\(Int(distance)) km"
@@ -61,14 +61,14 @@ class UsersAroundViewController: UIViewController {
         let distanceItem = UIBarButtonItem(customView: distanceLabel)
         
         
-        mySlider.frame = CGRect(x: 0, y: 0, width: 200, height: 20)
-        mySlider.minimumValue = 1
-        mySlider.maximumValue = 999
-        mySlider.isContinuous = true
-        mySlider.value = Float(distance)
-        mySlider.tintColor = UIColor(red: 93/255, green: 79/255, blue: 141/255, alpha: 1)
-        mySlider.addTarget(self, action: #selector(sliderValueChanged(slider:event:)), for: UIControl.Event.valueChanged)
-        navigationItem.rightBarButtonItems = [refresh, distanceItem]
+//        mySlider.frame = CGRect(x: 0, y: 0, width: 200, height: 20)
+//        mySlider.minimumValue = 1
+//        mySlider.maximumValue = 999
+//        mySlider.isContinuous = true
+//        mySlider.value = Float(distance)
+//        mySlider.tintColor = UIColor(red: 93/255, green: 79/255, blue: 141/255, alpha: 1)
+//        mySlider.addTarget(self, action: #selector(sliderValueChanged(slider:event:)), for: UIControl.Event.valueChanged)
+        navigationItem.rightBarButtonItems = [searchPeople, distanceItem]
         navigationItem.titleView = mySlider
     }
     
@@ -137,8 +137,11 @@ class UsersAroundViewController: UIViewController {
         findUsers()
     }
     
-    @objc func refreshTapped() {
-        findUsers()
+    @objc func searchPeopleTapped() {
+        // switch to usersaroundVC
+        let storyboard = UIStoryboard(name: "Welcome", bundle: nil)
+        let peopleTableVC = storyboard.instantiateViewController(withIdentifier: IDENTIFIER_TABLE_PEOPLE) as! PeopleTableViewController
+        self.navigationController?.pushViewController(peopleTableVC, animated: true)
     }
     
     @objc func sliderValueChanged(slider: UISlider, event: UIEvent) {

@@ -114,7 +114,7 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         if annotation.isKind(of: MKUserLocation.self) {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "User")
-            annotationView?.image = UIImage(named: "icon_user")
+            annotationView?.image = UIImage(named: "icon_skater_map")
         } else if let deqAno = mapView.dequeueReusableAnnotationView(withIdentifier:identifier) {
             annotationView = deqAno
             annotationView?.annotation = annotation
