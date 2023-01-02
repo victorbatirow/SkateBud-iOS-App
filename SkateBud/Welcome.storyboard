@@ -1651,6 +1651,12 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plane Detected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6kV-0N-QCT">
+                                <rect key="frame" x="145" y="92" width="124.5" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="l4p-QT-qGY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1660,6 +1666,8 @@
                             <constraint firstItem="PFz-ny-xz0" firstAttribute="top" secondItem="Zva-6m-bEi" secondAttribute="top" id="8DD-BI-oCQ"/>
                             <constraint firstItem="PFz-ny-xz0" firstAttribute="leading" secondItem="l4p-QT-qGY" secondAttribute="leading" id="JtU-vX-aFh"/>
                             <constraint firstAttribute="bottom" secondItem="1Zv-Iq-sGw" secondAttribute="bottom" id="OGX-fZ-wfY"/>
+                            <constraint firstItem="6kV-0N-QCT" firstAttribute="centerX" secondItem="Zva-6m-bEi" secondAttribute="centerX" id="S8k-rf-dBO"/>
+                            <constraint firstItem="6kV-0N-QCT" firstAttribute="top" secondItem="l4p-QT-qGY" secondAttribute="top" id="TfV-ae-xqt"/>
                             <constraint firstItem="PFz-ny-xz0" firstAttribute="trailing" secondItem="l4p-QT-qGY" secondAttribute="trailing" id="WEI-P2-pP7"/>
                             <constraint firstItem="1Zv-Iq-sGw" firstAttribute="leading" secondItem="l4p-QT-qGY" secondAttribute="leading" id="WJS-WB-tlR"/>
                         </constraints>
@@ -1667,6 +1675,7 @@
                     <navigationItem key="navigationItem" id="Wcu-16-BpB"/>
                     <connections>
                         <outlet property="itemsCollectionView" destination="1Zv-Iq-sGw" id="tWC-qL-i0W"/>
+                        <outlet property="planeDetectedLbl" destination="6kV-0N-QCT" id="p65-HQ-v62"/>
                         <outlet property="sceneView" destination="PFz-ny-xz0" id="yB8-BH-o3N"/>
                     </connections>
                 </viewController>

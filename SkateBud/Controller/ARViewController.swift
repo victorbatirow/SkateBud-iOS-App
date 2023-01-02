@@ -8,9 +8,10 @@
 import UIKit
 import ARKit
 
-class ARViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class ARViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,  ARSCNViewDelegate {
 
     @IBOutlet weak var itemsCollectionView: UICollectionView!
+    @IBOutlet weak var planeDetectedLbl: UILabel!
     @IBOutlet weak var sceneView: ARSCNView!
     
     let itemsArray: [String] = ["cup", "vase", "boxing", "table"]
@@ -26,6 +27,7 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
         self.sceneView.session.run(configuration)
         self.itemsCollectionView.dataSource = self
         self.itemsCollectionView.delegate = self
+        self.sceneView.delegate = self
         self.registerGestureRecognizers()
         // Do any additional setup after loading the view.
     }
@@ -39,6 +41,8 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
     
     func registerGestureRecognizers() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinched))
+        self.sceneView.addGestureRecognizer(pinchGestureRecognizer)
         self.sceneView.addGestureRecognizer(tapGestureRecognizer)
     }
     
@@ -48,6 +52,20 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
         let hitTest = sceneView.hitTest(tapLocation, types: .existingPlaneUsingExtent)
         if !hitTest.isEmpty {
             self.addItem(hitTestResult: hitTest.first!)
+        }
+    }
+    
+    @objc func pinched(sender : UIPinchGestureRecognizer) {
+        let sceneView = sender.view as! ARSCNView
+        let pinchLocation = sender.location(in: sceneView)
+        let hitTest = sceneView.hitTest(pinchLocation)
+        if !hitTest.isEmpty {
+            let results = hitTest.first!
+            let node = results.node
+            let pinchAction = SCNAction.scale(by: sender.scale, duration: 0)
+            print(sender.scale)
+            node.runAction(pinchAction)
+            sender.scale = 1.0
         }
     }
     
@@ -80,5 +98,15 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
         cell?.backgroundColor = UIColor.lightGray
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        guard anchor is ARPlaneAnchor else {return}
+        DispatchQueue.main.async {
+            self.planeDetectedLbl.isHidden = false
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.planeDetectedLbl.isHidden = true
+            }
+        }
     }
 }
