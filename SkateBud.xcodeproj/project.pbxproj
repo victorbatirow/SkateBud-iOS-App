@@ -41,6 +41,9 @@
 		57A922732932F3B100639488 /* UserAroundCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A922722932F3B100639488 /* UserAroundCollectionViewCell.swift */; };
 		57AD89252935922A0020D71B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AD89242935922A0020D71B /* MapViewController.swift */; };
 		57B8DA7D29364A9B0042196A /* UserAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B8DA7C29364A9B0042196A /* UserAnnotation.swift */; };
+		57BFDC8229637B420041AE1E /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BFDC8129637B420041AE1E /* ARViewController.swift */; };
+		57BFDC84296382F20041AE1E /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BFDC83296382F20041AE1E /* ItemCollectionViewCell.swift */; };
+		57BFDC86296387680041AE1E /* Models in Resources */ = {isa = PBXBuildFile; fileRef = 57BFDC85296387680041AE1E /* Models */; };
 		57D6CBE629136B4000373437 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D6CBE529136B4000373437 /* Message.swift */; };
 		57D6CBE82913751800373437 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D6CBE72913751800373437 /* MessageTableViewCell.swift */; };
 		57D6CBEA291D8DF900373437 /* ChatViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D6CBE9291D8DF800373437 /* ChatViewController+Extension.swift */; };
@@ -88,6 +91,9 @@
 		57A922722932F3B100639488 /* UserAroundCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAroundCollectionViewCell.swift; sourceTree = "<group>"; };
 		57AD89242935922A0020D71B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		57B8DA7C29364A9B0042196A /* UserAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAnnotation.swift; sourceTree = "<group>"; };
+		57BFDC8129637B420041AE1E /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
+		57BFDC83296382F20041AE1E /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		57BFDC85296387680041AE1E /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models; sourceTree = "<group>"; };
 		57D6CBE529136B4000373437 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		57D6CBE72913751800373437 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		57D6CBE9291D8DF800373437 /* ChatViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -152,6 +158,7 @@
 				57A9226F292F011C00639488 /* API */,
 				57A9226C292F009700639488 /* Model */,
 				5785AAC5290A172900845D86 /* Extension.swift */,
+				57BFDC85296387680041AE1E /* Models */,
 				574EAD832907226F00021EB8 /* Assets.xcassets */,
 				574EAD852907226F00021EB8 /* LaunchScreen.storyboard */,
 				57A92268292EC96300639488 /* GoogleService-Info.plist */,
@@ -176,6 +183,7 @@
 			children = (
 				574EAD7E2907226E00021EB8 /* ViewController.swift */,
 				574EAD902907544100021EB8 /* ViewController+UI.swift */,
+				57BFDC8129637B420041AE1E /* ARViewController.swift */,
 				57D6CBF32923111900373437 /* ProfileTableViewController.swift */,
 				5785AAC7290B360D00845D86 /* ChatViewController.swift */,
 				57D6CBE9291D8DF800373437 /* ChatViewController+Extension.swift */,
@@ -203,6 +211,7 @@
 				5785AAC12909F88E00845D86 /* UserTableViewCell.swift */,
 				57A922722932F3B100639488 /* UserAroundCollectionViewCell.swift */,
 				570BADFD293AEE7400505328 /* MapTableViewCell.swift */,
+				57BFDC83296382F20041AE1E /* ItemCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -293,6 +302,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57BFDC86296387680041AE1E /* Models in Resources */,
 				574EAD872907226F00021EB8 /* LaunchScreen.storyboard in Resources */,
 				570BAE02293E588700505328 /* Card.xib in Resources */,
 				57A92269292EC96300639488 /* GoogleService-Info.plist in Resources */,
@@ -361,6 +371,7 @@
 				57D6CBEA291D8DF900373437 /* ChatViewController+Extension.swift in Sources */,
 				5785AABE2909E36C00845D86 /* MessagesTableViewController.swift in Sources */,
 				574EAD7F2907226E00021EB8 /* ViewController.swift in Sources */,
+				57BFDC84296382F20041AE1E /* ItemCollectionViewCell.swift in Sources */,
 				57B8DA7D29364A9B0042196A /* UserAnnotation.swift in Sources */,
 				5785AAC02909F15600845D86 /* PeopleTableViewController.swift in Sources */,
 				5785AACA29120B9F00845D86 /* MessageApi.swift in Sources */,
@@ -381,6 +392,7 @@
 				57D6CBE629136B4000373437 /* Message.swift in Sources */,
 				570BAE00293E429F00505328 /* RadarViewController.swift in Sources */,
 				574EAD7D2907226E00021EB8 /* SceneDelegate.swift in Sources */,
+				57BFDC8229637B420041AE1E /* ARViewController.swift in Sources */,
 				57D6CBE82913751800373437 /* MessageTableViewCell.swift in Sources */,
 				5785AAC22909F88E00845D86 /* UserTableViewCell.swift in Sources */,
 				5785AAC8290B360D00845D86 /* ChatViewController.swift in Sources */,
