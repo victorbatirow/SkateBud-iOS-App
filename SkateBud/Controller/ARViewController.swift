@@ -40,13 +40,16 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
     }
     
     func registerGestureRecognizers() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
-        let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(pinched))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(placeItem))
+        let pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(resizeItem))
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(rotateItem))
+        longPressGestureRecognizer.minimumPressDuration = 0.1
         self.sceneView.addGestureRecognizer(pinchGestureRecognizer)
         self.sceneView.addGestureRecognizer(tapGestureRecognizer)
+        self.sceneView.addGestureRecognizer(longPressGestureRecognizer)
     }
     
-    @objc func tapped(sender: UITapGestureRecognizer) {
+    @objc func placeItem(sender: UITapGestureRecognizer) {
         let sceneView = sender.view as! ARSCNView
         let tapLocation = sender.location(in: sceneView)
         let hitTest = sceneView.hitTest(tapLocation, types: .existingPlaneUsingExtent)
@@ -55,7 +58,7 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
         }
     }
     
-    @objc func pinched(sender : UIPinchGestureRecognizer) {
+    @objc func resizeItem(sender: UIPinchGestureRecognizer) {
         let sceneView = sender.view as! ARSCNView
         let pinchLocation = sender.location(in: sceneView)
         let hitTest = sceneView.hitTest(pinchLocation)
@@ -66,6 +69,24 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
             print(sender.scale)
             node.runAction(pinchAction)
             sender.scale = 1.0
+        }
+    }
+    
+    @objc func rotateItem(sender: UILongPressGestureRecognizer) {
+        let sceneView = sender.view as! ARSCNView
+        let holdLocation = sender.location(in: sceneView)
+        let hitTest = sceneView.hitTest(holdLocation)
+        if !hitTest.isEmpty {
+            
+            let results = hitTest.first!
+            
+            if sender.state == .began {
+                let rotation = SCNAction.rotateBy(x: 0, y: CGFloat(360.degreesToRadians), z: 0, duration: 1)
+                let forever = SCNAction.repeatForever(rotation)
+                results.node.runAction(forever)
+            } else if sender.state == .ended {
+                results.node.removeAllActions()
+            }
         }
     }
     
@@ -101,7 +122,7 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        guard anchor is ARPlaneAnchor else {return}
+        guard anchor is ARPlaneAnchor else { return }
         DispatchQueue.main.async {
             self.planeDetectedLbl.isHidden = false
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
@@ -109,4 +130,8 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
             }
         }
     }
+}
+
+extension Int {
+    var degreesToRadians: Double { return Double(self) * .pi/180 }
 }
