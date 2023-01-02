@@ -15,7 +15,7 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
     
     let itemsArray: [String] = ["cup", "vase", "boxing", "table"]
     let configuration = ARWorldTrackingConfiguration()
-    var selectedItem: String
+    var selectedItem: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,11 +53,12 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
     
     func addItem(hitTestResult: ARHitTestResult) {
         if let selectedItem = self.selectedItem {
-            let scene = SCNScene(named: "Models.scnassets/\(selectedItem).scn")
-            let node = scene?.rootNode.childNode(withName: selectedItem, recursively: false)
+            let scene = SCNScene(named: "Models/\(selectedItem).scn")
+            let node = (scene?.rootNode.childNode(withName: selectedItem, recursively: false))!
             let transform = hitTestResult.worldTransform
             let thirdColumn = transform.columns.3
-            node?.position = SCNVector3(thirdColumn.x, thirdColumn.y, thirdColumn.z)
+            node.position = SCNVector3(thirdColumn.x, thirdColumn.y, thirdColumn.z)
+            self.sceneView.scene.rootNode.addChildNode(node)
         }
     }
     
