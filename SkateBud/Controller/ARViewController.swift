@@ -14,7 +14,7 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
     @IBOutlet weak var planeDetectedLbl: UILabel!
     @IBOutlet weak var sceneView: ARSCNView!
     
-    let itemsArray: [String] = ["cup", "vase", "boxing", "table"]
+    let itemsArray: [String] = ["cup", "vase", "boxing", "table", "skateboard", "cone"]
     let configuration = ARWorldTrackingConfiguration()
     var selectedItem: String?
     
@@ -28,6 +28,7 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
         self.itemsCollectionView.dataSource = self
         self.itemsCollectionView.delegate = self
         self.sceneView.delegate = self
+        sceneView.autoenablesDefaultLighting = true
         self.registerGestureRecognizers()
         // Do any additional setup after loading the view.
     }
