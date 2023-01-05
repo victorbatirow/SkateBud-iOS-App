@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>161710856962-iokfonkf7u1kcmna4savr3mrjae0e4se.apps.googleusercontent.com</string>
+	<string>562216141140-cu1srhcq00fjfdrb8c1sqg59p52u6mfn.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.161710856962-iokfonkf7u1kcmna4savr3mrjae0e4se</string>
+	<string>com.googleusercontent.apps.562216141140-cu1srhcq00fjfdrb8c1sqg59p52u6mfn</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCKjeBeJf404L0H8ROg8zPsVe6WCS1poBQ</string>
+	<string>AIzaSyBEyoimvMiqs6Re4vsZLa8eU_elfMb8Bt0</string>
 	<key>GCM_SENDER_ID</key>
-	<string>161710856962</string>
+	<string>562216141140</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.victorbatirow.SkateBud</string>
 	<key>PROJECT_ID</key>
-	<string>skatebud-1e743</string>
+	<string>skatebud-a58cb</string>
 	<key>STORAGE_BUCKET</key>
-	<string>skatebud-1e743.appspot.com</string>
+	<string>skatebud-a58cb.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:161710856962:ios:357fd526c3e95ee51dc01b</string>
+	<string>1:562216141140:ios:102571546f9088a769c8c1</string>
 </dict>
 </plist>

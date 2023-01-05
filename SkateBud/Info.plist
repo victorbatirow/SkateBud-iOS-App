@@ -5,7 +5,7 @@
 	<key>NSMicrophoneUsageDescription</key>
 	<string></string>
 	<key>NSCameraUsageDescription</key>
-	<string></string>
+	<string>You need the camera to display Augmented Reality features</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string></string>
 	<key>NSLocationAlwaysUsageDescription</key>
