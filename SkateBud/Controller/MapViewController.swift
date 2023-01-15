@@ -85,18 +85,20 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     func addAnnotation() {
         var nearByAnnotations: [MKAnnotation] = []
         for user in users {
-            let location = CLLocation(latitude: Double(user.latitude)!, longitude: Double(user.longitude)!)
-            let annotation = UserAnnotation()
-            annotation.title = user.username
-            if let age = user.age {
-                annotation.subtitle = "age: \(age)"
+            if !user.latitude.isEmpty || !user.longitude.isEmpty {
+                let location = CLLocation(latitude: Double(user.latitude)!, longitude: Double(user.longitude)!)
+                let annotation = UserAnnotation()
+                annotation.title = user.username
+                if let age = user.age {
+                    annotation.subtitle = "age: \(age)"
+                }
+                if let experience = user.experience {
+                    annotation.experience = user.experience
+                }
+                annotation.coordinate = location.coordinate
+                annotation.profileImage = user.profileImage
+                nearByAnnotations.append(annotation)
             }
-            if let experience = user.experience {
-                annotation.experience = user.experience
-            }
-            annotation.coordinate = location.coordinate
-            annotation.profileImage = user.profileImage
-            nearByAnnotations.append(annotation)
         }
         self.mapView.showAnnotations(nearByAnnotations, animated: true)
     }
