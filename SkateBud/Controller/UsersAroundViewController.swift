@@ -61,13 +61,13 @@ class UsersAroundViewController: UIViewController {
         let distanceItem = UIBarButtonItem(customView: distanceLabel)
         
         
-//        mySlider.frame = CGRect(x: 0, y: 0, width: 200, height: 20)
-//        mySlider.minimumValue = 1
-//        mySlider.maximumValue = 999
-//        mySlider.isContinuous = true
-//        mySlider.value = Float(distance)
-//        mySlider.tintColor = UIColor(red: 93/255, green: 79/255, blue: 141/255, alpha: 1)
-//        mySlider.addTarget(self, action: #selector(sliderValueChanged(slider:event:)), for: UIControl.Event.valueChanged)
+        mySlider.frame = CGRect(x: 0, y: 0, width: 200, height: 20)
+        mySlider.minimumValue = 1
+        mySlider.maximumValue = 999
+        mySlider.isContinuous = true
+        mySlider.value = Float(distance)
+        mySlider.tintColor = UIColor(red: 93/255, green: 79/255, blue: 141/255, alpha: 1)
+        mySlider.addTarget(self, action: #selector(sliderValueChanged(slider:event:)), for: UIControl.Event.valueChanged)
         navigationItem.rightBarButtonItems = [searchPeople, distanceItem]
         navigationItem.titleView = mySlider
     }
