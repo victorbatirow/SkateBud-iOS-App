@@ -46,8 +46,8 @@
             filePath = "SkateBud/Controller/ARViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "226"
+            endingLineNumber = "226"
             landmarkName = "addItem(hitTestResult:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -8,6 +8,8 @@
 	<string>You need the camera to display Augmented Reality features</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string></string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>Export AR Media</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Will you allow this app to always know your location?</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

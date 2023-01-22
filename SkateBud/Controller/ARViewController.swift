@@ -7,6 +7,7 @@
 
 import UIKit
 import ARKit
+import ARVideoKit
 
 class ARViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,  ARSCNViewDelegate {
 
@@ -19,6 +20,8 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
     var selectedItem: String?
     
     //ARVideoKit Variables
+    var recorder: RecordAR?
+    
     // Recorder UIButton. This button will start and stop a video recording.
     var recorderButton:UIButton = {
         let btn = UIButton(type: .system)
@@ -82,17 +85,70 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
         pauseButton.addTarget(self, action: #selector(pauseAction(sender:)), for: .touchUpInside)
         gifButton.addTarget(self, action: #selector(gifAction(sender:)), for: .touchUpInside)
         
+        // Initialize with SpriteKit scene
+        recorder = RecordAR(ARSceneKit: sceneView)
+        // Specifiy supported orientations
+        recorder?.inputViewOrientations = [.portrait, .landscapeLeft, .landscapeRight]
+            
         // Do any additional setup after loading the view.
     }
     
     // Record and stop method
     @objc func recorderAction(sender:UIButton) {
+        
+        if recorder?.status == .readyToRecord {
+            // Start recording
+            recorder?.record()
             
-    }
-    // Pause and resume method
-    @objc func pauseAction(sender:UIButton) {
+            // Change button title
+            sender.setTitle("Stop", for: .normal)
+            sender.setTitleColor(.red, for: .normal)
+            
+            // Enable Pause button
+            pauseButton.alpha = 1
+            pauseButton.isEnabled = true
+            
+            // Disable GIF button
+            gifButton.alpha = 0.3
+            gifButton.isEnabled = false
+        }else if recorder?.status == .recording || recorder?.status == .paused {
+            // Stop recording and export video to camera roll
+            recorder?.stopAndExport()
+            
+            // Change button title
+            sender.setTitle("Record", for: .normal)
+            sender.setTitleColor(.black, for: .normal)
+            
+            // Enable GIF button
+            gifButton.alpha = 1
+            gifButton.isEnabled = true
+            
+            // Disable Pause button
+            pauseButton.alpha = 0.3
+            pauseButton.isEnabled = false
+        }
         
     }
+    
+    // Pause and resume method
+    @objc func pauseAction(sender:UIButton) {
+        if recorder?.status == .recording {
+            // Pause recording
+            recorder?.pause()
+            
+            // Change button title
+            sender.setTitle("Resume", for: .normal)
+            sender.setTitleColor(.blue, for: .normal)
+        } else if recorder?.status == .paused {
+            // Resume recording
+            recorder?.record()
+            
+            // Change button title
+            sender.setTitle("Pause", for: .normal)
+            sender.setTitleColor(.black, for: .normal)
+        }
+    }
+    
     // Capture GIF method
     @objc func gifAction(sender:UIButton) {
      
@@ -103,6 +159,14 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
         // hide navigation bar andtab bar when mapview opens
 //        self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = true
+        
+        //ARVideoKit stuff
+        recorder?.prepare(configuration)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        recorder?.rest()
     }
     
     func registerGestureRecognizers() {
