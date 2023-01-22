@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import ARVideoKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -72,6 +73,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
         Api.User.isOnline(bool: false)
+    }
+    
+    //ARVideoKit
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return ViewAR.orientation
     }
 
 

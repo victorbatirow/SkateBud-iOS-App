@@ -18,6 +18,46 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
     let configuration = ARWorldTrackingConfiguration()
     var selectedItem: String?
     
+    //ARVideoKit Variables
+    // Recorder UIButton. This button will start and stop a video recording.
+    var recorderButton:UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("Record", for: .normal)
+        btn.setTitleColor(.black, for: .normal)
+        btn.backgroundColor = .white
+        btn.frame = CGRect(x: 0, y: 0, width: 110, height: 60)
+        btn.center = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height*0.90)
+        btn.layer.cornerRadius = btn.bounds.height/2
+        btn.tag = 0
+        return btn
+    }()
+     
+    // Pause UIButton. This button will pause a video recording.
+    var pauseButton:UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("Pause", for: .normal)
+        btn.setTitleColor(.black, for: .normal)
+        btn.backgroundColor = .white
+        btn.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
+        btn.center = CGPoint(x: UIScreen.main.bounds.width*0.15, y: UIScreen.main.bounds.height*0.90)
+        btn.layer.cornerRadius = btn.bounds.height/2
+        btn.alpha = 0.3
+        btn.isEnabled = false
+        return btn
+    }()
+     
+    // GIF UIButton. This button will capture a GIF image.
+    var gifButton:UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("GIF", for: .normal)
+        btn.setTitleColor(.black, for: .normal)
+        btn.backgroundColor = .white
+        btn.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
+        btn.center = CGPoint(x: UIScreen.main.bounds.width*0.85, y: UIScreen.main.bounds.height*0.90)
+        btn.layer.cornerRadius = btn.bounds.height/2
+        return btn
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,7 +70,32 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
         self.sceneView.delegate = self
         sceneView.autoenablesDefaultLighting = true
         self.registerGestureRecognizers()
+        
+        //ARVideoKit  Stuff
+        // Add the buttons as subviews of the View Controller
+        self.view.addSubview(recorderButton)
+        self.view.addSubview(pauseButton)
+        self.view.addSubview(gifButton)
+    
+        // Add buttons’ targets and connect them to the methods
+        recorderButton.addTarget(self, action: #selector(recorderAction(sender:)), for: .touchUpInside)
+        pauseButton.addTarget(self, action: #selector(pauseAction(sender:)), for: .touchUpInside)
+        gifButton.addTarget(self, action: #selector(gifAction(sender:)), for: .touchUpInside)
+        
         // Do any additional setup after loading the view.
+    }
+    
+    // Record and stop method
+    @objc func recorderAction(sender:UIButton) {
+            
+    }
+    // Pause and resume method
+    @objc func pauseAction(sender:UIButton) {
+        
+    }
+    // Capture GIF method
+    @objc func gifAction(sender:UIButton) {
+     
     }
     
     override func viewWillAppear(_ animated: Bool) {
