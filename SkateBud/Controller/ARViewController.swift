@@ -14,7 +14,7 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
     @IBOutlet weak var planeDetectedLbl: UILabel!
     @IBOutlet weak var sceneView: ARSCNView!
     
-    let itemsArray: [String] = ["cup", "table", "skateboard", "cone1", "car1", "bench", "sign", "tires", "bricks", "dumpster", "trash", "rail"]
+    let itemsArray: [String] = ["cup", "table", "skateboard", "cone1", "car1", "car2", "bench", "sign", "tires", "bricks", "dumpster", "trash", "rail"]
     let configuration = ARWorldTrackingConfiguration()
     var selectedItem: String?
     
