@@ -15,5 +15,6 @@ target 'SkateBud' do
   pod 'ProgressHUD'
   pod 'SDWebImage'
   pod 'GeoFire'
+  pod 'ARVideoKit', '~> 1.5.51'
 
 end

@@ -1612,7 +1612,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                             </arscnView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1Zv-Iq-sGw">
-                                <rect key="frame" x="0.0" y="821" width="414" height="75"/>
+                                <rect key="frame" x="0.0" y="746" width="414" height="75"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="6x3-7V-rhy"/>
@@ -1665,7 +1665,7 @@
                             <constraint firstItem="PFz-ny-xz0" firstAttribute="bottom" secondItem="l4p-QT-qGY" secondAttribute="bottom" id="56U-BG-or0"/>
                             <constraint firstItem="PFz-ny-xz0" firstAttribute="top" secondItem="Zva-6m-bEi" secondAttribute="top" id="8DD-BI-oCQ"/>
                             <constraint firstItem="PFz-ny-xz0" firstAttribute="leading" secondItem="l4p-QT-qGY" secondAttribute="leading" id="JtU-vX-aFh"/>
-                            <constraint firstAttribute="bottom" secondItem="1Zv-Iq-sGw" secondAttribute="bottom" id="OGX-fZ-wfY"/>
+                            <constraint firstAttribute="bottom" secondItem="1Zv-Iq-sGw" secondAttribute="bottom" constant="75" id="OGX-fZ-wfY"/>
                             <constraint firstItem="6kV-0N-QCT" firstAttribute="centerX" secondItem="Zva-6m-bEi" secondAttribute="centerX" id="S8k-rf-dBO"/>
                             <constraint firstItem="6kV-0N-QCT" firstAttribute="top" secondItem="l4p-QT-qGY" secondAttribute="top" id="TfV-ae-xqt"/>
                             <constraint firstItem="PFz-ny-xz0" firstAttribute="trailing" secondItem="l4p-QT-qGY" secondAttribute="trailing" id="WEI-P2-pP7"/>

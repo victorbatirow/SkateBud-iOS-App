@@ -7,6 +7,7 @@
 
 import UIKit
 import ARKit
+import ARVideoKit
 
 class ARViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,  ARSCNViewDelegate {
 
@@ -18,11 +19,53 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
     let configuration = ARWorldTrackingConfiguration()
     var selectedItem: String?
     
+    //ARVideoKit Variables
+    var recorder: RecordAR?
+    
+    // Recorder UIButton. This button will start and stop a video recording.
+    var recorderButton:UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("Record", for: .normal)
+        btn.setTitleColor(.black, for: .normal)
+        btn.backgroundColor = .white
+        btn.frame = CGRect(x: 0, y: 0, width: 110, height: 60)
+        btn.center = CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height*0.75)
+        btn.layer.cornerRadius = btn.bounds.height/2
+        btn.tag = 0
+        return btn
+    }()
+     
+    // Pause UIButton. This button will pause a video recording.
+    var pauseButton:UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("Pause", for: .normal)
+        btn.setTitleColor(.black, for: .normal)
+        btn.backgroundColor = .white
+        btn.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
+        btn.center = CGPoint(x: UIScreen.main.bounds.width*0.15, y: UIScreen.main.bounds.height*0.75)
+        btn.layer.cornerRadius = btn.bounds.height/2
+        btn.alpha = 0.3
+        btn.isEnabled = false
+        return btn
+    }()
+     
+    // Clear Button. This button will remove all previously placed items.
+    var clearItemsButton:UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("Clear", for: .normal)
+        btn.setTitleColor(.black, for: .normal)
+        btn.backgroundColor = .white
+        btn.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
+        btn.center = CGPoint(x: UIScreen.main.bounds.width*0.85, y: UIScreen.main.bounds.height*0.75)
+        btn.layer.cornerRadius = btn.bounds.height/2
+        return btn
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Show AR debug elements in the scene
-        self.sceneView.debugOptions = [ ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
+//        self.sceneView.debugOptions = [ ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
         self.configuration.planeDetection = .horizontal
         self.sceneView.session.run(configuration)
         self.itemsCollectionView.dataSource = self
@@ -30,14 +73,110 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
         self.sceneView.delegate = self
         sceneView.autoenablesDefaultLighting = true
         self.registerGestureRecognizers()
+        
+        //ARVideoKit  Stuff
+        // Add the buttons as subviews of the View Controller
+        self.view.addSubview(recorderButton)
+        self.view.addSubview(pauseButton)
+        self.view.addSubview(clearItemsButton)
+    
+        // Add buttons’ targets and connect them to the methods
+        recorderButton.addTarget(self, action: #selector(recorderAction(sender:)), for: .touchUpInside)
+        pauseButton.addTarget(self, action: #selector(pauseAction(sender:)), for: .touchUpInside)
+        clearItemsButton.addTarget(self, action: #selector(clearAction(sender:)), for: .touchUpInside)
+        
+        // Initialize with SpriteKit scene
+        recorder = RecordAR(ARSceneKit: sceneView)
+        // Specifiy supported orientations
+        recorder?.inputViewOrientations = [.portrait, .landscapeLeft, .landscapeRight]
+            
         // Do any additional setup after loading the view.
+    }
+    
+    // Record and stop method
+    @objc func recorderAction(sender:UIButton) {
+        
+        if recorder?.status == .readyToRecord {
+            // Start recording
+            recorder?.record()
+            
+            // Change button title
+            sender.setTitle("Stop", for: .normal)
+            sender.setTitleColor(.red, for: .normal)
+            
+            // Enable Pause button
+            pauseButton.alpha = 1
+            pauseButton.isEnabled = true
+            
+            // Disable clear button
+            clearItemsButton.alpha = 0.3
+            clearItemsButton.isEnabled = false
+        } else if recorder?.status == .recording || recorder?.status == .paused {
+            // Stop recording and export video to camera roll
+            recorder?.stopAndExport()
+            
+            // Change button title
+            sender.setTitle("Record", for: .normal)
+            sender.setTitleColor(.black, for: .normal)
+            
+            // Enable clear button
+            clearItemsButton.alpha = 1
+            clearItemsButton.isEnabled = true
+            
+            // Disable Pause button
+            pauseButton.alpha = 0.3
+            pauseButton.isEnabled = false
+        }
+        
+    }
+    
+    // Pause and resume method
+    @objc func pauseAction(sender:UIButton) {
+        if recorder?.status == .recording {
+            // Pause recording
+            recorder?.pause()
+            
+            // Change button title
+            sender.setTitle("Resume", for: .normal)
+            sender.setTitleColor(.blue, for: .normal)
+        } else if recorder?.status == .paused {
+            // Resume recording
+            recorder?.record()
+            
+            // Change button title
+            sender.setTitle("Pause", for: .normal)
+            sender.setTitleColor(.black, for: .normal)
+        }
+    }
+    
+    // Clear all items method
+    @objc func clearAction(sender:UIButton) {
+        removeAllItems()
+    }
+    
+    func removeAllItems() {
+        var existingNodes = self.sceneView.scene.rootNode.childNodes
+        print(existingNodes)
+        for itemNode in existingNodes {
+            itemNode.removeFromParentNode()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // hide navigation bar andtab bar when mapview opens
 //        self.navigationController?.navigationBar.isHidden = true
-        self.tabBarController?.tabBar.isHidden = true
+//        self.tabBarController?.tabBar.isHidden = true
+        
+        //ARVideoKit stuff
+        recorder?.prepare(configuration)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeAllItems()
+        sceneView.session.pause()
+        recorder?.rest()
     }
     
     func registerGestureRecognizers() {
