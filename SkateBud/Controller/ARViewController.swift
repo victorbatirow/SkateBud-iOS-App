@@ -49,10 +49,10 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
         return btn
     }()
      
-    // GIF UIButton. This button will capture a GIF image.
-    var gifButton:UIButton = {
+    // Clear Button. This button will remove all previously placed items.
+    var clearItemsButton:UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle("GIF", for: .normal)
+        btn.setTitle("Clear", for: .normal)
         btn.setTitleColor(.black, for: .normal)
         btn.backgroundColor = .white
         btn.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
@@ -78,12 +78,12 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
         // Add the buttons as subviews of the View Controller
         self.view.addSubview(recorderButton)
         self.view.addSubview(pauseButton)
-        self.view.addSubview(gifButton)
+        self.view.addSubview(clearItemsButton)
     
         // Add buttons’ targets and connect them to the methods
         recorderButton.addTarget(self, action: #selector(recorderAction(sender:)), for: .touchUpInside)
         pauseButton.addTarget(self, action: #selector(pauseAction(sender:)), for: .touchUpInside)
-        gifButton.addTarget(self, action: #selector(gifAction(sender:)), for: .touchUpInside)
+        clearItemsButton.addTarget(self, action: #selector(clearAction(sender:)), for: .touchUpInside)
         
         // Initialize with SpriteKit scene
         recorder = RecordAR(ARSceneKit: sceneView)
@@ -108,10 +108,10 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
             pauseButton.alpha = 1
             pauseButton.isEnabled = true
             
-            // Disable GIF button
-            gifButton.alpha = 0.3
-            gifButton.isEnabled = false
-        }else if recorder?.status == .recording || recorder?.status == .paused {
+            // Disable clear button
+            clearItemsButton.alpha = 0.3
+            clearItemsButton.isEnabled = false
+        } else if recorder?.status == .recording || recorder?.status == .paused {
             // Stop recording and export video to camera roll
             recorder?.stopAndExport()
             
@@ -119,9 +119,9 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
             sender.setTitle("Record", for: .normal)
             sender.setTitleColor(.black, for: .normal)
             
-            // Enable GIF button
-            gifButton.alpha = 1
-            gifButton.isEnabled = true
+            // Enable clear button
+            clearItemsButton.alpha = 1
+            clearItemsButton.isEnabled = true
             
             // Disable Pause button
             pauseButton.alpha = 0.3
@@ -149,22 +149,16 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
         }
     }
     
-    // Capture GIF method
-    @objc func gifAction(sender:UIButton) {
-        self.gifButton.isEnabled = false
-        self.gifButton.alpha = 0.3
-        self.recorderButton.isEnabled = false
-        self.recorderButton.alpha = 0.3
- 
-        recorder?.gif(forDuration: 1.5, export: true) { _, _, _ , exported in
-            if exported {
-                DispatchQueue.main.sync {
-                    self.gifButton.isEnabled = true
-                    self.gifButton.alpha = 1.0
-                    self.recorderButton.isEnabled = true
-                    self.recorderButton.alpha = 1.0
-                }
-            }
+    // Clear all items method
+    @objc func clearAction(sender:UIButton) {
+        removeAllItems()
+    }
+    
+    func removeAllItems() {
+        var existingNodes = self.sceneView.scene.rootNode.childNodes
+        print(existingNodes)
+        for itemNode in existingNodes {
+            itemNode.removeFromParentNode()
         }
     }
     
@@ -180,6 +174,8 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        removeAllItems()
+        sceneView.session.pause()
         recorder?.rest()
     }
     
