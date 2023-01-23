@@ -65,7 +65,7 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
         super.viewDidLoad()
 
         // Show AR debug elements in the scene
-        self.sceneView.debugOptions = [ ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
+//        self.sceneView.debugOptions = [ ARSCNDebugOptions.showWorldOrigin, ARSCNDebugOptions.showFeaturePoints]
         self.configuration.planeDetection = .horizontal
         self.sceneView.session.run(configuration)
         self.itemsCollectionView.dataSource = self
