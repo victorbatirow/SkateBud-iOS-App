@@ -42,7 +42,7 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
         btn.setTitleColor(.black, for: .normal)
         btn.backgroundColor = .white
         btn.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
-        btn.center = CGPoint(x: UIScreen.main.bounds.width*0.15, y: UIScreen.main.bounds.height*0.80)
+        btn.center = CGPoint(x: UIScreen.main.bounds.width*0.15, y: UIScreen.main.bounds.height*0.90)
         btn.layer.cornerRadius = btn.bounds.height/2
         btn.alpha = 0.3
         btn.isEnabled = false
@@ -172,7 +172,7 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
         super.viewWillAppear(animated)
         // hide navigation bar andtab bar when mapview opens
 //        self.navigationController?.navigationBar.isHidden = true
-        self.tabBarController?.tabBar.isHidden = true
+//        self.tabBarController?.tabBar.isHidden = true
         
         //ARVideoKit stuff
         recorder?.prepare(configuration)
