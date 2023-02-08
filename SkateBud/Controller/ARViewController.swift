@@ -71,6 +71,7 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
         self.itemsCollectionView.dataSource = self
         self.itemsCollectionView.delegate = self
         self.sceneView.delegate = self
+        // sceneView.automaticallyUpdatesLighting = true
         sceneView.autoenablesDefaultLighting = true
         self.registerGestureRecognizers()
         
@@ -89,6 +90,8 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
         recorder = RecordAR(ARSceneKit: sceneView)
         // Specifiy supported orientations
         recorder?.inputViewOrientations = [.portrait, .landscapeLeft, .landscapeRight]
+        // Add environment light rendering to the recorder
+        recorder?.enableAdjustEnvironmentLighting = true
             
         // Do any additional setup after loading the view.
     }
