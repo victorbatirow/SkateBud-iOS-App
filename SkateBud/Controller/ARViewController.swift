@@ -71,6 +71,7 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
         self.itemsCollectionView.dataSource = self
         self.itemsCollectionView.delegate = self
         self.sceneView.delegate = self
+        // sceneView.automaticallyUpdatesLighting = true
         sceneView.autoenablesDefaultLighting = true
         self.registerGestureRecognizers()
         
@@ -89,6 +90,8 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
         recorder = RecordAR(ARSceneKit: sceneView)
         // Specifiy supported orientations
         recorder?.inputViewOrientations = [.portrait, .landscapeLeft, .landscapeRight]
+        // Add environment light rendering to the recorder
+        recorder?.enableAdjustEnvironmentLighting = true
             
         // Do any additional setup after loading the view.
     }
@@ -126,6 +129,14 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
             // Disable Pause button
             pauseButton.alpha = 0.3
             pauseButton.isEnabled = false
+            
+            // Alert user that the video has been saved
+             var dialogMessage = UIAlertController(title: "Video Saved", message: "The video has been saved to your photo library.", preferredStyle: .alert)
+             let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                 print("Ok button tapped")
+              })
+             dialogMessage.addAction(ok)
+             self.present(dialogMessage, animated: true, completion: nil)
         }
         
     }

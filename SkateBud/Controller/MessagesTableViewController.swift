@@ -30,8 +30,9 @@ class MessagesTableViewController: UITableViewController {
         avatarImageView.clipsToBounds = true
         containView.addSubview(avatarImageView)
         
-        let radarItem = UIBarButtonItem(image: UIImage(named: "icon_cards"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(radarItemDidTapped))
-        self.navigationItem.rightBarButtonItem = radarItem
+        // This is the top right button with cards icon to go to matching game feature
+//        let radarItem = UIBarButtonItem(image: UIImage(named: "icon_cards"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(radarItemDidTapped))
+//        self.navigationItem.rightBarButtonItem = radarItem
         
         let leftBarButton = UIBarButtonItem(customView: containView)
         self.navigationItem.leftBarButtonItem = leftBarButton
