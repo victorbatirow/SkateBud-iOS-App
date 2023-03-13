@@ -129,6 +129,14 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
             // Disable Pause button
             pauseButton.alpha = 0.3
             pauseButton.isEnabled = false
+            
+            // Alert user that the video has been saved
+             var dialogMessage = UIAlertController(title: "Video Saved", message: "The video has been saved to your photo library.", preferredStyle: .alert)
+             let ok = UIAlertAction(title: "OK", style: .default, handler: { (action) -> Void in
+                 print("Ok button tapped")
+              })
+             dialogMessage.addAction(ok)
+             self.present(dialogMessage, animated: true, completion: nil)
         }
         
     }
