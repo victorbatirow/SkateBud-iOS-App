@@ -12,6 +12,7 @@
 		570BAE00293E429F00505328 /* RadarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570BADFF293E429F00505328 /* RadarViewController.swift */; };
 		570BAE02293E588700505328 /* Card.xib in Resources */ = {isa = PBXBuildFile; fileRef = 570BAE01293E588700505328 /* Card.xib */; };
 		570BAE04293E5C6800505328 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570BAE03293E5C6800505328 /* Card.swift */; };
+		574A9E8529BFD46100C1559B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 574A9E8429BFD46100C1559B /* GoogleService-Info.plist */; };
 		574EAD7B2907226E00021EB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574EAD7A2907226E00021EB8 /* AppDelegate.swift */; };
 		574EAD7D2907226E00021EB8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574EAD7C2907226E00021EB8 /* SceneDelegate.swift */; };
 		574EAD7F2907226E00021EB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574EAD7E2907226E00021EB8 /* ViewController.swift */; };
@@ -43,7 +44,6 @@
 		57BFDC8229637B420041AE1E /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BFDC8129637B420041AE1E /* ARViewController.swift */; };
 		57BFDC84296382F20041AE1E /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BFDC83296382F20041AE1E /* ItemCollectionViewCell.swift */; };
 		57BFDC86296387680041AE1E /* Models in Resources */ = {isa = PBXBuildFile; fileRef = 57BFDC85296387680041AE1E /* Models */; };
-		57D54E612964F1890093A458 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 57D54E602964F1880093A458 /* GoogleService-Info.plist */; };
 		57D6CBE629136B4000373437 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D6CBE529136B4000373437 /* Message.swift */; };
 		57D6CBE82913751800373437 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D6CBE72913751800373437 /* MessageTableViewCell.swift */; };
 		57D6CBEA291D8DF900373437 /* ChatViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D6CBE9291D8DF800373437 /* ChatViewController+Extension.swift */; };
@@ -60,6 +60,7 @@
 		570BADFF293E429F00505328 /* RadarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarViewController.swift; sourceTree = "<group>"; };
 		570BAE01293E588700505328 /* Card.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Card.xib; sourceTree = "<group>"; };
 		570BAE03293E5C6800505328 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		574A9E8429BFD46100C1559B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		574EAD772907226E00021EB8 /* SkateBud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkateBud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		574EAD7A2907226E00021EB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		574EAD7C2907226E00021EB8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,7 +94,6 @@
 		57BFDC8129637B420041AE1E /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		57BFDC83296382F20041AE1E /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		57BFDC85296387680041AE1E /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models; sourceTree = "<group>"; };
-		57D54E602964F1880093A458 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		57D6CBE529136B4000373437 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		57D6CBE72913751800373437 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		57D6CBE9291D8DF800373437 /* ChatViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 				574EAD832907226F00021EB8 /* Assets.xcassets */,
 				574EAD852907226F00021EB8 /* LaunchScreen.storyboard */,
 				574EAD882907226F00021EB8 /* Info.plist */,
-				57D54E602964F1880093A458 /* GoogleService-Info.plist */,
+				574A9E8429BFD46100C1559B /* GoogleService-Info.plist */,
 			);
 			path = SkateBud;
 			sourceTree = "<group>";
@@ -307,7 +307,7 @@
 				570BAE02293E588700505328 /* Card.xib in Resources */,
 				574EAD8F290728E700021EB8 /* Welcome.storyboard in Resources */,
 				574EAD842907226F00021EB8 /* Assets.xcassets in Resources */,
-				57D54E612964F1890093A458 /* GoogleService-Info.plist in Resources */,
+				574A9E8529BFD46100C1559B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
