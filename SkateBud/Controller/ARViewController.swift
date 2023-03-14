@@ -15,7 +15,8 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
     @IBOutlet weak var planeDetectedLbl: UILabel!
     @IBOutlet weak var sceneView: ARSCNView!
     
-    let itemsArray: [String] = ["cup", "table", "skateboard", "cone1", "car1", "car2", "bench", "sign", "tires", "bricks", "dumpster", "trash", "rail"]
+    let itemsArray: [String] = ["cup", "skateboard", "cone1", "car1", "car2", "bench", "sign", "tires", "bricks", "dumpster", "trash", "rail"]
+    var itemsIconArray = [UIImage(named: "item_cup_50x50"), UIImage(named: "item_skateboard_50x50"), UIImage(named: "item_cone1_50x50"), UIImage(named: "item_car1_50x50"), UIImage(named: "item_car2_50x50"), UIImage(named: "item_bench_50x50"), UIImage(named: "item_sign_50x50"), UIImage(named: "item_tires_50x50"), UIImage(named: "item_bricks_50x50"), UIImage(named: "item_dumpster_50x50"), UIImage(named: "item_trash_50x50"), UIImage(named: "item_rail_50x50")]
     let configuration = ARWorldTrackingConfiguration()
     var selectedItem: String?
     
@@ -70,6 +71,7 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
         self.sceneView.session.run(configuration)
         self.itemsCollectionView.dataSource = self
         self.itemsCollectionView.delegate = self
+        self.itemsCollectionView.backgroundColor = UIColor.clear.withAlphaComponent(0)
         self.sceneView.delegate = self
         // sceneView.automaticallyUpdatesLighting = true
         sceneView.autoenablesDefaultLighting = true
@@ -258,7 +260,10 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ARCollectionViewItemCell", for: indexPath) as! ItemCollectionViewCell
-        cell.itemLabel.text = self.itemsArray[indexPath.row]
+        cell.itemImage.image = self.itemsIconArray[indexPath.row]
+        cell.itemImage.sizeToFit()
+        cell.layer.cornerRadius = 32
+        cell.clipsToBounds = true
         return cell
     }
     
@@ -269,7 +274,7 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
     }
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
-        cell?.backgroundColor = UIColor.lightGray
+        cell?.backgroundColor = UIColor.clear
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {

@@ -1612,10 +1612,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                             </arscnView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1Zv-Iq-sGw">
-                                <rect key="frame" x="0.0" y="746" width="414" height="75"/>
+                                <rect key="frame" x="0.0" y="721" width="414" height="100"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="6x3-7V-rhy"/>
+                                    <constraint firstAttribute="height" constant="100" id="6x3-7V-rhy"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="30" id="kwX-2Z-LUT">
                                     <size key="itemSize" width="120" height="50"/>
@@ -1625,28 +1625,26 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ARCollectionViewItemCell" id="ddo-GL-lmd" customClass="ItemCollectionViewCell" customModule="SkateBud" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="12.5" width="120" height="50"/>
+                                        <rect key="frame" x="20" y="25" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tHJ-67-xNM">
-                                            <rect key="frame" x="0.0" y="0.0" width="120" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfe-Hu-J1k">
-                                                    <rect key="frame" x="43.5" y="14.5" width="33" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gpr-3X-P3v">
+                                                    <rect key="frame" x="8" y="8" width="34" height="34"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="yfe-Hu-J1k" firstAttribute="centerY" secondItem="tHJ-67-xNM" secondAttribute="centerY" id="5wK-tS-GaO"/>
-                                                <constraint firstItem="yfe-Hu-J1k" firstAttribute="centerX" secondItem="tHJ-67-xNM" secondAttribute="centerX" id="K7e-DG-uJW"/>
+                                                <constraint firstItem="Gpr-3X-P3v" firstAttribute="trailing" secondItem="tHJ-67-xNM" secondAttribute="trailingMargin" id="RGU-aF-nAO"/>
+                                                <constraint firstItem="Gpr-3X-P3v" firstAttribute="bottom" secondItem="tHJ-67-xNM" secondAttribute="bottomMargin" id="SoL-eW-Vbl"/>
+                                                <constraint firstItem="Gpr-3X-P3v" firstAttribute="leading" secondItem="tHJ-67-xNM" secondAttribute="leadingMargin" id="bbG-Od-2dz"/>
+                                                <constraint firstItem="Gpr-3X-P3v" firstAttribute="top" secondItem="tHJ-67-xNM" secondAttribute="topMargin" id="esS-f0-glo"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <size key="customSize" width="120" height="50"/>
+                                        <size key="customSize" width="50" height="50"/>
                                         <connections>
-                                            <outlet property="itemLabel" destination="yfe-Hu-J1k" id="GNA-p0-HSZ"/>
+                                            <outlet property="itemImage" destination="Gpr-3X-P3v" id="NNJ-ly-TZ3"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
