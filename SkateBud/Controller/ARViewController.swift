@@ -264,6 +264,11 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
         cell.itemImage.sizeToFit()
         cell.layer.cornerRadius = 32
         cell.clipsToBounds = true
+        if (self.itemsArray[indexPath.row] == self.selectedItem) {
+            cell.backgroundColor = UIColor.green
+        } else {
+            cell.backgroundColor = UIColor.clear
+        }
         return cell
     }
     
