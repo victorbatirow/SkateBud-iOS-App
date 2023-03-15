@@ -181,6 +181,16 @@ class ARViewController: UIViewController, UICollectionViewDataSource, UICollecti
 //        self.navigationController?.navigationBar.isHidden = true
 //        self.tabBarController?.tabBar.isHidden = true
         
+        // Make the ARCSView cover the entire screen
+        if (self.tabBarController?.tabBar.isHidden == true) {
+            NSLayoutConstraint.activate([
+                sceneView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0),
+                sceneView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 0),
+                sceneView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0),
+                sceneView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0)
+            ])
+        }
+        
         //ARVideoKit stuff
         recorder?.prepare(configuration)
     }
