@@ -41,6 +41,7 @@ let IDENTIFIER_USER_AROUND = "UsersAroundViewController"
 let IDENTIFIER_MAP = "MapViewController"
 let IDENTIFIER_DETAIL = "DetailViewController"
 let IDENTIFIER_RADAR = "RadarViewController"
+let IDENTIFIER_BLADE_TRICK = "BladeTrickViewController"
 
 let IDENTIFIER_TABLE_PEOPLE = "PeopleTableViewController"
 let IDENTIFIER_CELL_USERS = "UserTableViewCell"

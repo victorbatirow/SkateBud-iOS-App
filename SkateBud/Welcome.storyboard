@@ -1719,6 +1719,58 @@
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="2110.7142857142858"/>
         </scene>
+        <!--Blade Trick View Controller-->
+        <scene sceneID="zDE-Oh-15O">
+            <objects>
+                <viewController storyboardIdentifier="BladeTrickViewController" id="jEv-WV-fTq" customClass="BladeTrickViewController" customModule="SkateBud" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cUB-IB-bQd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trick Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PxN-DX-dTr">
+                                <rect key="frame" x="0.0" y="48" width="414" height="614"/>
+                                <fontDescription key="fontDescription" name="KohinoorGujarati-Bold" family="Kohinoor Gujarati" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Q2-lo-NNE">
+                                <rect key="frame" x="0.0" y="662" width="414" height="200"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Akv-6u-JFE"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Generate">
+                                    <fontDescription key="titleFontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="40"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="generateBtn:" destination="jEv-WV-fTq" eventType="touchUpInside" id="7ek-7h-wep"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="GVf-P9-G59"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PxN-DX-dTr" firstAttribute="top" secondItem="GVf-P9-G59" secondAttribute="top" id="6kg-Oy-2y7"/>
+                            <constraint firstItem="PxN-DX-dTr" firstAttribute="leading" secondItem="GVf-P9-G59" secondAttribute="leading" id="Wkh-PK-j5M"/>
+                            <constraint firstItem="7Q2-lo-NNE" firstAttribute="leading" secondItem="PxN-DX-dTr" secondAttribute="leading" id="dZ3-Er-N2v"/>
+                            <constraint firstItem="GVf-P9-G59" firstAttribute="trailing" secondItem="PxN-DX-dTr" secondAttribute="trailing" id="kGh-5F-b40"/>
+                            <constraint firstItem="GVf-P9-G59" firstAttribute="bottom" secondItem="7Q2-lo-NNE" secondAttribute="bottom" id="pSB-z0-zHV"/>
+                            <constraint firstItem="7Q2-lo-NNE" firstAttribute="top" secondItem="PxN-DX-dTr" secondAttribute="bottom" id="s7G-Tz-Pmr"/>
+                            <constraint firstItem="GVf-P9-G59" firstAttribute="trailing" secondItem="7Q2-lo-NNE" secondAttribute="trailing" id="ytq-Ts-zPR"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="FXt-7b-2dI"/>
+                    <connections>
+                        <outlet property="generateBtn" destination="7Q2-lo-NNE" id="8dn-qp-1sQ"/>
+                        <outlet property="nameLbl" destination="PxN-DX-dTr" id="AHG-7l-g4H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cVF-Pn-sn3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2493" y="2111"/>
+        </scene>
     </scenes>
     <resources>
         <image name="attachment_icon" width="32" height="32"/>
@@ -1747,6 +1799,9 @@
         </systemColor>
         <systemColor name="systemBrownColor">
             <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

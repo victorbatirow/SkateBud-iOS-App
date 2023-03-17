@@ -12,6 +12,7 @@
 		570BAE00293E429F00505328 /* RadarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570BADFF293E429F00505328 /* RadarViewController.swift */; };
 		570BAE02293E588700505328 /* Card.xib in Resources */ = {isa = PBXBuildFile; fileRef = 570BAE01293E588700505328 /* Card.xib */; };
 		570BAE04293E5C6800505328 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570BAE03293E5C6800505328 /* Card.swift */; };
+		573B330529C243F40099D8D3 /* BladeTrickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573B330429C243F40099D8D3 /* BladeTrickViewController.swift */; };
 		574A9E8529BFD46100C1559B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 574A9E8429BFD46100C1559B /* GoogleService-Info.plist */; };
 		574EAD7B2907226E00021EB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574EAD7A2907226E00021EB8 /* AppDelegate.swift */; };
 		574EAD7D2907226E00021EB8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574EAD7C2907226E00021EB8 /* SceneDelegate.swift */; };
@@ -60,6 +61,7 @@
 		570BADFF293E429F00505328 /* RadarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarViewController.swift; sourceTree = "<group>"; };
 		570BAE01293E588700505328 /* Card.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Card.xib; sourceTree = "<group>"; };
 		570BAE03293E5C6800505328 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		573B330429C243F40099D8D3 /* BladeTrickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BladeTrickViewController.swift; sourceTree = "<group>"; };
 		574A9E8429BFD46100C1559B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		574EAD772907226E00021EB8 /* SkateBud.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkateBud.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		574EAD7A2907226E00021EB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 		57A9226D292F00DD00639488 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				573B330429C243F40099D8D3 /* BladeTrickViewController.swift */,
 				574EAD7E2907226E00021EB8 /* ViewController.swift */,
 				574EAD902907544100021EB8 /* ViewController+UI.swift */,
 				57BFDC8129637B420041AE1E /* ARViewController.swift */,
@@ -361,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				570BADFE293AEE7400505328 /* MapTableViewCell.swift in Sources */,
+				573B330529C243F40099D8D3 /* BladeTrickViewController.swift in Sources */,
 				570BADFC29380E0100505328 /* DetailViewController.swift in Sources */,
 				57AD89252935922A0020D71B /* MapViewController.swift in Sources */,
 				574EAD9929076F1F00021EB8 /* SignInViewController+UI.swift in Sources */,
