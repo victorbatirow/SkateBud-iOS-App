@@ -34,6 +34,10 @@ class MessagesTableViewController: UITableViewController {
 //        let radarItem = UIBarButtonItem(image: UIImage(named: "icon_cards"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(radarItemDidTapped))
 //        self.navigationItem.rightBarButtonItem = radarItem
         
+        // This is the top right button with cristal ball icon to go to blade trick generator feature
+        let crystalBallItem = UIBarButtonItem(image: UIImage(named: "icon_cards"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(cystalBallItemDidTapped))
+        self.navigationItem.rightBarButtonItem = crystalBallItem
+        
         let leftBarButton = UIBarButtonItem(customView: containView)
         self.navigationItem.leftBarButtonItem = leftBarButton
         
@@ -43,6 +47,12 @@ class MessagesTableViewController: UITableViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateProfile), name: NSNotification.Name("updateProfileImage"), object: nil)
         
+    }
+    
+    @objc func cystalBallItemDidTapped() {
+        let storyboard = UIStoryboard(name: "Welcome", bundle: nil)
+        let bladeTrickVC = storyboard.instantiateViewController(withIdentifier: IDENTIFIER_BLADE_TRICK) as! BladeTrickViewController
+        self.navigationController?.pushViewController(bladeTrickVC, animated: true)
     }
     
     @objc func radarItemDidTapped() {
