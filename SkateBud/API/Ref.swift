@@ -14,7 +14,7 @@ let REF_MESSAGE = "messages"
 let REF_INBOX = "inbox"
 let REF_GEO = "geolocs"
 
-let URL_STORAGE_ROOT = "gs://skatebud-fe1b4.appspot.com"
+let URL_STORAGE_ROOT = "gs://skatebud-c0c0d.appspot.com"
 let STORAGE_PROFILE = "profile"
 let PROFILE_IMAGE_URL = "profileImageUrl"
 

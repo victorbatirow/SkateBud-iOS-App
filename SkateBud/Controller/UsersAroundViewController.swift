@@ -25,7 +25,7 @@ class UsersAroundViewController: UIViewController {
     var geoFireRef: DatabaseReference!
     var myQuery: GFQuery!
     var queryHandle: DatabaseHandle?
-    var distance: Double = 500
+    var distance: Double = 50
     var users:  [User] = []
     var currentLocation: CLLocation?
 
@@ -63,7 +63,7 @@ class UsersAroundViewController: UIViewController {
         
         mySlider.frame = CGRect(x: 0, y: 0, width: 200, height: 20)
         mySlider.minimumValue = 1
-        mySlider.maximumValue = 999
+        mySlider.maximumValue = 200
         mySlider.isContinuous = true
         mySlider.value = Float(distance)
         mySlider.tintColor = UIColor(red: 93/255, green: 79/255, blue: 141/255, alpha: 1)
@@ -102,19 +102,19 @@ class UsersAroundViewController: UIViewController {
 
                     switch self.segmentControl.selectedSegmentIndex {
                     case 0:
+                        self.users.append(user)
+                    case 1:
                         if user.experience == "Beginner" {
                             self.users.append(user)
                         }
-                    case 1:
+                    case 2:
                         if user.experience == "Intermediate" {
                             self.users.append(user)
                         }
-                    case 2:
+                    case 3:
                         if user.experience == "Advanced" {
                             self.users.append(user)
                         }
-                    case 3:
-                            self.users.append(user)
                     default:
                         break
                     }
