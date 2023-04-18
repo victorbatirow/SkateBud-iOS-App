@@ -35,7 +35,7 @@ class MessagesTableViewController: UITableViewController {
 //        self.navigationItem.rightBarButtonItem = radarItem
         
         // This is the top right button with cristal ball icon to go to blade trick generator feature
-        let crystalBallItem = UIBarButtonItem(image: UIImage(named: "icon_cards"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(cystalBallItemDidTapped))
+        let crystalBallItem = UIBarButtonItem(image: UIImage(named: "icon_crystal_ball"), style: UIBarButtonItem.Style.plain, target: self, action: #selector(cystalBallItemDidTapped))
         self.navigationItem.rightBarButtonItem = crystalBallItem
         
         let leftBarButton = UIBarButtonItem(customView: containView)
